@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Báo Giá & Theo Dõi Đơn Hàng | Ezbook.vn</title>
+
+  <!-- Hiển thị đẹp khi gửi link qua Zalo / Facebook -->
+  <meta property="og:title" content="Báo Giá & Theo Dõi Chuyến Xe - Ezbook Việt Nam" />
+  <meta property="og:description" content="Xem chi tiết lộ trình, chi phí thuê xe, xác nhận đặt chuyến và thanh toán đặt cọc trực tuyến tại Ezbook.vn" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f8fafc;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="ezbookAppFrame" allow="clipboard-read; clipboard-write"></iframe>
+
+  <script>
+    // Link Web App Google Apps Script trung tâm của Ezbook
+    var GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbw67Hf6sGmpoPHTmwQ6VO3tEwfO7RTa5P8Dy0_YxVpYX5cRl_L5AVkkCie5J0ep32wM/exec";
+    
+    // Lấy nguyên chuỗi ?t=... từ thanh địa chỉ trình duyệt nối vào Web App
+    var queryParams = window.location.search || "";
+    document.getElementById("ezbookAppFrame").src = GAS_WEBAPP_URL + queryParams;
+  </script>
+</body>
+</html>
